@@ -6,12 +6,12 @@ This project is a PyTorch implementation for classifying human interaction state
 
 This code is based on two uploaded papers:
 
-1. `10.1109_tfuzz.2025.3528376_i8df.pdf`
+1. 
    - Paper: "A Fuzzy Logic-Based Approach to Predict Human Interaction by Functional Near-Infrared Spectroscopy"
    - DOI: `10.1109/TFUZZ.2025.3528376`
    - Role: provides the main fNIRS human-interaction prediction idea and task setting.
 
-2. `10.1109_tsmc.2025.3614244_ogn2.pdf`
+2. 
    - Paper: "iFuzzyTL: Interpretable Fuzzy Transfer Learning for Steady-State Visual Evoked Potentials Brain-Computer Interfaces System"
    - DOI: `10.1109/TSMC.2025.3614244`
    - Role: provides the interpretable fuzzy spatial and temporal filter idea used to build the model architecture.
@@ -108,18 +108,6 @@ The script performs these steps:
 6. Prints final test accuracy.
 7. Saves fuzzy centers, projection matrices, and firing strengths.
 
-## Generated Files
-
-Training generates these files:
-
-- `spatial_centers_it2.npy`
-- `spatial_W_Q.npy`
-- `spatial_firing.npy`
-- `temporal_centers_it2.npy`
-- `temporal_W_Q.npy`
-- `temporal_firing.npy`
-
-These files are required before running the plotting scripts.
 
 ## Plotting
 
@@ -147,13 +135,3 @@ python fuzzy_model_result_plot.py
 python fuzzy_temporal_result_plot.py
 ```
 
-## Notes
-
-- Run `train_pytorch_model.py` before plotting, because the plot scripts depend on generated `.npy` files.
-- If plots are empty, check whether `spatial_firing.npy` or `temporal_firing.npy` contains `NaN` values.
-- The fuzzy filters use stable softmax normalization to avoid numerical overflow in firing-strength calculation.
-- The current training script uses `400` epochs and Adam with learning rate `0.0007`.
-
-## Suggested Citation Context
-
-This project implements the fNIRS-based human interaction prediction framework from `10.1109/TFUZZ.2025.3528376` and adapts interpretable fuzzy spatial/temporal filtering concepts from `10.1109/TSMC.2025.3614244` in a PyTorch interval type-2 fuzzy neural network.
